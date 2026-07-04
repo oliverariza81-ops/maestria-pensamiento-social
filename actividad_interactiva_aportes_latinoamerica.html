@@ -1,179 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aportes de América Latina al mundo</title>
-  <style>
-    :root{
-      --bg:#f5f7fb; --card:#ffffff; --primary:#173b7a; --ok:#1f8f4d;
-      --bad:#c0392b; --soft:#eaf2ff; --border:#d9e2ef; --text:#1e293b;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);}
-    header{background:linear-gradient(135deg,var(--primary),#2459b8);color:#fff;padding:24px 32px;}
-    header h1{margin:0 0 8px;font-size:28px}
-    header p{margin:0;font-size:16px;max-width:1050px;line-height:1.5}
-    main{padding:24px 32px 40px;max-width:1280px;margin:auto}
-    .instructions{background:var(--soft);border:1px solid #b9d3ff;border-radius:14px;padding:16px 18px;margin-bottom:22px;line-height:1.45}
-    .scorebar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap}
-    .score{font-weight:bold;color:var(--primary);font-size:18px}
-    button{background:var(--primary);color:#fff;border:none;border-radius:10px;padding:10px 16px;cursor:pointer;font-weight:bold;font-size:14px;margin-left:6px}
-    button:hover{background:#0f2d60}
-    .layout{display:grid;grid-template-columns:1.4fr .8fr;gap:24px;align-items:start}
-    .grid{display:grid;grid-template-columns:repeat(2,minmax(250px,1fr));gap:16px}
-    .item{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px;box-shadow:0 2px 8px rgba(15,23,42,.06);display:grid;grid-template-columns:74px 1fr;gap:12px;min-height:138px}
-    .icon{width:74px;height:74px;border-radius:14px;background:#f1f5f9;display:flex;align-items:center;justify-content:center;font-size:42px;border:1px solid #e2e8f0}
-    .item h3{margin:0 0 8px;font-size:16px;color:#0f172a}
-    .dropzone{min-height:42px;border:2px dashed #9db7db;border-radius:12px;background:#fafcff;padding:8px;display:flex;align-items:center;justify-content:center;text-align:center;color:#64748b;font-size:14px;transition:.2s}
-    .dropzone.dragover{border-color:#2f80ed;background:#eaf2ff;transform:scale(1.02)}
-    .dropzone.correct{border-color:var(--ok);background:#eafaf0;color:var(--ok);font-weight:bold}
-    .dropzone.incorrect{border-color:var(--bad);background:#fff0f0;color:var(--bad);font-weight:bold}
-    aside{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;box-shadow:0 2px 8px rgba(15,23,42,.06);position:sticky;top:16px}
-    aside h2{margin:0 0 12px;color:var(--primary);font-size:20px}
-    .bank{display:flex;flex-direction:column;gap:10px}
-    .token{background:#fff;border:1px solid #b7c4d6;border-radius:12px;padding:10px 12px;cursor:grab;user-select:none;box-shadow:0 2px 6px rgba(15,23,42,.08);font-weight:bold;line-height:1.25}
-    .token:active{cursor:grabbing}
-    .token.used{opacity:.45;cursor:not-allowed}
-    .feedback{margin-top:18px;padding:14px;border-radius:14px;border:1px solid var(--border);background:#fff;line-height:1.45;display:none}
-    .feedback.show{display:block}
-    .feedback.ok{border-color:#a5d6b7;background:#eefaf2}
-    .feedback.mid{border-color:#f2d18b;background:#fff8e8}
-    @media(max-width:980px){.layout{grid-template-columns:1fr}aside{position:static}}
-    @media(max-width:620px){main{padding:18px}header{padding:20px}.grid{grid-template-columns:1fr}.item{grid-template-columns:64px 1fr}.icon{width:64px;height:64px;font-size:36px}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aportes de América Latina al mundo</title>
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#1f2937}
+header{background:#143a76;color:#fff;padding:24px}
+header h1{margin:0 0 8px;font-size:28px}
+header p{margin:0;line-height:1.5}
+main{max-width:1180px;margin:auto;padding:22px}
+.instructions{background:#eaf2ff;border:1px solid #b9d3ff;border-radius:14px;padding:14px;margin-bottom:18px}
+.scorebar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:16px 0;flex-wrap:wrap}
+.score{font-weight:bold;color:#143a76;font-size:18px}
+button{background:#143a76;color:white;border:0;border-radius:10px;padding:10px 16px;font-weight:bold;cursor:pointer}
+button:hover{background:#0f2d60}
+.layout{display:grid;grid-template-columns:1.5fr .75fr;gap:22px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(240px,1fr));gap:14px}
+.item{background:white;border:1px solid #d9e2ef;border-radius:14px;padding:14px;display:grid;grid-template-columns:62px 1fr;gap:12px;box-shadow:0 3px 10px rgba(0,0,0,.05)}
+.icon{font-size:38px;background:#f1f5f9;border-radius:12px;display:flex;align-items:center;justify-content:center;height:62px}
+.item h3{margin:0 0 8px;font-size:16px}
+.dropzone{min-height:42px;border:2px dashed #9db7db;border-radius:10px;background:#fafcff;color:#64748b;display:flex;align-items:center;justify-content:center;text-align:center;padding:8px}
+.dropzone.over{background:#eaf2ff;border-color:#2563eb}
+.dropzone.correct{background:#eafaf0;border-color:#1f8f4d;color:#1f8f4d;font-weight:bold}
+.dropzone.wrong{background:#fff0f0;border-color:#c0392b;color:#c0392b;font-weight:bold}
+aside{background:white;border:1px solid #d9e2ef;border-radius:14px;padding:16px;box-shadow:0 3px 10px rgba(0,0,0,.05)}
+aside h2{margin:0 0 12px;color:#143a76}
+.bank{display:flex;flex-direction:column;gap:10px}
+.token{background:white;border:1px solid #b7c4d6;border-radius:10px;padding:10px;box-shadow:0 2px 6px rgba(0,0,0,.08);font-weight:bold;cursor:grab}
+.token.used{opacity:.35;cursor:not-allowed}
+.feedback{display:none;margin-top:14px;padding:12px;border-radius:12px;background:#fff8e8;border:1px solid #f2d18b}
+.feedback.ok{background:#eefaf2;border-color:#a5d6b7}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <header>
-  <h1>Actividad de cierre: Aportes de América Latina al mundo</h1>
-  <p>Arrastra cada tarjeta hacia la aportación latinoamericana que corresponda. Esta actividad busca reconocer conocimientos, creaciones e innovaciones de nuestra región que han tenido impacto cultural, científico o social.</p>
+<h1>Actividad de cierre: Aportes de América Latina al mundo</h1>
+<p>Arrastra cada tarjeta hacia la aportación latinoamericana que corresponda.</p>
 </header>
 <main>
-  <section class="instructions">
-    <strong>Instrucciones:</strong> Relaciona cada imagen o símbolo con su origen, autor, cultura o región. Al finalizar, presiona <strong>Calificar</strong>. Puedes reiniciar la actividad para intentarlo de nuevo.
-  </section>
-  <div class="scorebar">
-    <div class="score" id="score">Aciertos: 0 / 10</div>
-    <div><button onclick="checkAnswers()">Calificar</button><button onclick="resetActivity()">Reiniciar</button></div>
-  </div>
-  <div class="layout">
-    <section class="grid" id="targets">
-      <div class="item"><div class="icon">🌽</div><div><h3>Maíz</h3><div class="dropzone" data-answer="Pueblos mesoamericanos">Arrastra aquí</div></div></div>
-      <div class="item"><div class="icon">🍫</div><div><h3>Chocolate / cacao</h3><div class="dropzone" data-answer="Civilizaciones mesoamericanas">Arrastra aquí</div></div></div>
-      <div class="item"><div class="icon">🛶</div><div><h3>Chinampas</h3><div class="dropzone" data-answer="Mexicas">Arrastra aquí</div></div></div>
-      <div class="item"><div class="icon">📺</div><div><h3>Televisión a color</h3><div class="dropzone" data-answer="Guillermo González Camarena">Arrastra aquí</div></div></div>
-      <div class="item"><div class="icon">📚</div><div><h3><em>Cien años de soledad</em></h3><div class="dropzone" data-answer="Gabriel García Márquez">Arrastra aquí</div></div></div>
-      <div class="item"><div class="icon">🎨</div><div><h3>Figuras voluminosas de Botero</h3><div class="dropzone" data-answer="Fernando Botero">Arrastra aquí</div></div></div>
-      <div class="item"><div class="icon">🪢</div><div><h3>Quipu</h3><div class="dropzone" data-answer="Culturas andinas">Arrastra aquí</div></div></div>
-      <div class="item"><div class="icon">🥔</div><div><h3>Papa</h3><div class="dropzone" data-answer="Andes centrales">Arrastra aquí</div></div></div>
-      <div class="item"><div class="icon">🦙</div><div><h3>Domesticación de la llama</h3><div class="dropzone" data-answer="Andes">Arrastra aquí</div></div></div>
-      <div class="item"><div class="icon">🏺</div><div><h3>Cerámica Nazca</h3><div class="dropzone" data-answer="Cultura Nazca">Arrastra aquí</div></div></div>
-    </section>
-    <aside>
-      <h2>Tarjetas para arrastrar</h2>
-      <div class="bank" id="bank">
-        <div class="token" draggable="true">Gabriel García Márquez</div>
-        <div class="token" draggable="true">Pueblos mesoamericanos</div>
-        <div class="token" draggable="true">Fernando Botero</div>
-        <div class="token" draggable="true">Guillermo González Camarena</div>
-        <div class="token" draggable="true">Culturas andinas</div>
-        <div class="token" draggable="true">Civilizaciones mesoamericanas</div>
-        <div class="token" draggable="true">Mexicas</div>
-        <div class="token" draggable="true">Andes centrales</div>
-        <div class="token" draggable="true">Andes</div>
-        <div class="token" draggable="true">Cultura Nazca</div>
-      </div>
-      <div class="feedback" id="feedback"></div>
-    </aside>
-  </div>
+<div class="instructions"><strong>Instrucciones:</strong> Relaciona cada aporte con su origen, autor, cultura o región. Al finalizar, presiona <strong>Calificar</strong>.</div>
+<div class="scorebar">
+<div class="score" id="score">Aciertos: 0 / 10</div>
+<div><button onclick="checkAnswers()">Calificar</button> <button onclick="resetActivity()">Reiniciar</button></div>
+</div>
+<div class="layout">
+<section class="grid">
+<div class="item"><div class="icon">🌽</div><div><h3>Maíz</h3><div class="dropzone" data-answer="Pueblos mesoamericanos">Arrastra aquí</div></div></div>
+<div class="item"><div class="icon">🍫</div><div><h3>Chocolate / cacao</h3><div class="dropzone" data-answer="Civilizaciones mesoamericanas">Arrastra aquí</div></div></div>
+<div class="item"><div class="icon">🛶</div><div><h3>Chinampas</h3><div class="dropzone" data-answer="Mexicas">Arrastra aquí</div></div></div>
+<div class="item"><div class="icon">📺</div><div><h3>Televisión a color</h3><div class="dropzone" data-answer="Guillermo González Camarena">Arrastra aquí</div></div></div>
+<div class="item"><div class="icon">📚</div><div><h3>Cien años de soledad</h3><div class="dropzone" data-answer="Gabriel García Márquez">Arrastra aquí</div></div></div>
+<div class="item"><div class="icon">🎨</div><div><h3>Figuras de Botero</h3><div class="dropzone" data-answer="Fernando Botero">Arrastra aquí</div></div></div>
+<div class="item"><div class="icon">🪢</div><div><h3>Quipu</h3><div class="dropzone" data-answer="Culturas andinas">Arrastra aquí</div></div></div>
+<div class="item"><div class="icon">🥔</div><div><h3>Papa</h3><div class="dropzone" data-answer="Andes centrales">Arrastra aquí</div></div></div>
+<div class="item"><div class="icon">🦙</div><div><h3>Domesticación de la llama</h3><div class="dropzone" data-answer="Andes">Arrastra aquí</div></div></div>
+<div class="item"><div class="icon">🏺</div><div><h3>Cerámica Nazca</h3><div class="dropzone" data-answer="Cultura Nazca">Arrastra aquí</div></div></div>
+</section>
+<aside>
+<h2>Tarjetas</h2>
+<div class="bank" id="bank">
+<div class="token" draggable="true">Gabriel García Márquez</div>
+<div class="token" draggable="true">Pueblos mesoamericanos</div>
+<div class="token" draggable="true">Fernando Botero</div>
+<div class="token" draggable="true">Guillermo González Camarena</div>
+<div class="token" draggable="true">Culturas andinas</div>
+<div class="token" draggable="true">Civilizaciones mesoamericanas</div>
+<div class="token" draggable="true">Mexicas</div>
+<div class="token" draggable="true">Andes centrales</div>
+<div class="token" draggable="true">Andes</div>
+<div class="token" draggable="true">Cultura Nazca</div>
+</div>
+<div id="feedback" class="feedback"></div>
+</aside>
+</div>
 </main>
 <script>
-let dragged = null;
-function setupDragAndDrop(){
-  document.querySelectorAll('.token').forEach(token => {
-    token.addEventListener('dragstart', e => {
-      if(token.classList.contains('used')) { e.preventDefault(); return; }
-      dragged = token;
-      e.dataTransfer.setData('text/plain', token.textContent);
-    });
-  });
-  document.querySelectorAll('.dropzone').forEach(zone => {
-    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('dragover'); });
-    zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
-    zone.addEventListener('drop', e => {
-      e.preventDefault();
-      zone.classList.remove('dragover');
-      if(!dragged) return;
-      const old = zone.querySelector('.token');
-      if(old){
-        const originalOld = Array.from(document.querySelectorAll('#bank .token')).find(t => t.textContent === old.textContent);
-        if(originalOld){ originalOld.classList.remove('used'); originalOld.setAttribute('draggable','true'); }
-      }
-      zone.innerHTML = '';
-      const clone = dragged.cloneNode(true);
-      clone.classList.remove('correct','incorrect','used');
-      clone.setAttribute('draggable','true');
-      zone.appendChild(clone);
-      const original = Array.from(document.querySelectorAll('#bank .token')).find(t => t.textContent === dragged.textContent);
-      if(original){ original.classList.add('used'); original.setAttribute('draggable','false'); }
-      clone.addEventListener('dragstart', ev => {
-        dragged = clone;
-        ev.dataTransfer.setData('text/plain', clone.textContent);
-      });
-      zone.classList.remove('correct','incorrect');
-      document.getElementById('feedback').className = 'feedback';
-    });
-  });
-  const bank = document.getElementById('bank');
-  bank.addEventListener('dragover', e => e.preventDefault());
-  bank.addEventListener('drop', e => {
-    e.preventDefault();
-    if(!dragged) return;
-    const parentZone = dragged.closest('.dropzone');
-    if(parentZone){
-      const original = Array.from(document.querySelectorAll('#bank .token')).find(t => t.textContent === dragged.textContent);
-      if(original){ original.classList.remove('used'); original.setAttribute('draggable','true'); }
-      parentZone.innerHTML = 'Arrastra aquí';
-      parentZone.classList.remove('correct','incorrect');
-    }
-    document.getElementById('feedback').className = 'feedback';
-  });
+let dragged=null;
+document.querySelectorAll('.token').forEach(t=>{
+t.addEventListener('dragstart',e=>{
+ if(t.classList.contains('used')){e.preventDefault();return}
+ dragged=t; e.dataTransfer.setData('text/plain',t.textContent);
+});
+});
+document.querySelectorAll('.dropzone').forEach(z=>{
+z.addEventListener('dragover',e=>{e.preventDefault();z.classList.add('over')});
+z.addEventListener('dragleave',()=>z.classList.remove('over'));
+z.addEventListener('drop',e=>{
+ e.preventDefault(); z.classList.remove('over');
+ if(!dragged)return;
+ const placed=z.querySelector('.placed');
+ if(placed){unuse(placed.textContent)}
+ z.innerHTML='<span class="placed">'+dragged.textContent+'</span>';
+ dragged.classList.add('used');
+ z.classList.remove('correct','wrong');
+});
+});
+function unuse(text){
+ document.querySelectorAll('#bank .token').forEach(t=>{if(t.textContent===text){t.classList.remove('used')}});
 }
 function checkAnswers(){
-  let correct = 0;
-  const zones = document.querySelectorAll('.dropzone');
-  zones.forEach(zone => {
-    const token = zone.querySelector('.token');
-    zone.classList.remove('correct','incorrect');
-    if(token && token.textContent.trim() === zone.dataset.answer.trim()){
-      correct++;
-      zone.classList.add('correct');
-    } else {
-      zone.classList.add('incorrect');
-    }
-  });
-  document.getElementById('score').textContent = 'Aciertos: ' + correct + ' / ' + zones.length;
-  const feedback = document.getElementById('feedback');
-  feedback.classList.add('show');
-  feedback.classList.remove('ok','mid');
-  if(correct === zones.length){
-    feedback.classList.add('ok');
-    feedback.innerHTML = '<strong>Excelente.</strong> Has relacionado correctamente todos los aportes. Esta actividad muestra que América Latina ha producido conocimientos, obras e innovaciones de impacto mundial.';
-  } else {
-    feedback.classList.add('mid');
-    feedback.innerHTML = '<strong>Resultado:</strong> ' + correct + ' de ' + zones.length + ' correctas. Revisa las opciones marcadas en rojo e inténtalo nuevamente.';
-  }
+ let correct=0; const zones=document.querySelectorAll('.dropzone');
+ zones.forEach(z=>{
+   const p=z.querySelector('.placed'); z.classList.remove('correct','wrong');
+   if(p && p.textContent.trim()===z.dataset.answer){correct++;z.classList.add('correct')}
+   else{z.classList.add('wrong')}
+ });
+ document.getElementById('score').textContent='Aciertos: '+correct+' / '+zones.length;
+ const f=document.getElementById('feedback'); f.style.display='block';
+ if(correct===zones.length){f.className='feedback ok';f.innerHTML='<strong>Excelente.</strong> Todas las relaciones son correctas.'}
+ else{f.className='feedback';f.innerHTML='<strong>Resultado:</strong> '+correct+' de '+zones.length+'. Revisa las opciones marcadas en rojo.'}
 }
 function resetActivity(){
-  document.querySelectorAll('#bank .token').forEach(t => { t.classList.remove('used'); t.setAttribute('draggable','true'); });
-  document.querySelectorAll('.dropzone').forEach(zone => {
-    zone.innerHTML = 'Arrastra aquí';
-    zone.classList.remove('correct','incorrect');
-  });
-  document.getElementById('score').textContent = 'Aciertos: 0 / 10';
-  document.getElementById('feedback').className = 'feedback';
+ document.querySelectorAll('#bank .token').forEach(t=>t.classList.remove('used'));
+ document.querySelectorAll('.dropzone').forEach(z=>{z.innerHTML='Arrastra aquí';z.classList.remove('correct','wrong')});
+ document.getElementById('score').textContent='Aciertos: 0 / 10';
+ document.getElementById('feedback').style.display='none';
 }
-setupDragAndDrop();
 </script>
 </body>
 </html>
