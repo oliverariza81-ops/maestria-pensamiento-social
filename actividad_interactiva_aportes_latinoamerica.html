@@ -5,63 +5,101 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aportes de América Latina al mundo</title>
 <style>
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#1f2937}
-header{background:#143a76;color:#fff;padding:24px}
-header h1{margin:0 0 8px;font-size:28px}
-header p{margin:0;line-height:1.5}
-main{max-width:1180px;margin:auto;padding:22px}
-.instructions{background:#eaf2ff;border:1px solid #b9d3ff;border-radius:14px;padding:14px;margin-bottom:18px}
-.scorebar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:16px 0;flex-wrap:wrap}
-.score{font-weight:bold;color:#143a76;font-size:18px}
-button{background:#143a76;color:white;border:0;border-radius:10px;padding:10px 16px;font-weight:bold;cursor:pointer}
-button:hover{background:#0f2d60}
-.layout{display:grid;grid-template-columns:1.5fr .75fr;gap:22px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(240px,1fr));gap:14px}
-.item{background:white;border:1px solid #d9e2ef;border-radius:14px;padding:14px;display:grid;grid-template-columns:62px 1fr;gap:12px;box-shadow:0 3px 10px rgba(0,0,0,.05)}
-.icon{font-size:38px;background:#f1f5f9;border-radius:12px;display:flex;align-items:center;justify-content:center;height:62px}
-.item h3{margin:0 0 8px;font-size:16px}
-.dropzone{min-height:42px;border:2px dashed #9db7db;border-radius:10px;background:#fafcff;color:#64748b;display:flex;align-items:center;justify-content:center;text-align:center;padding:8px}
-.dropzone.over{background:#eaf2ff;border-color:#2563eb}
-.dropzone.correct{background:#eafaf0;border-color:#1f8f4d;color:#1f8f4d;font-weight:bold}
-.dropzone.wrong{background:#fff0f0;border-color:#c0392b;color:#c0392b;font-weight:bold}
-aside{background:white;border:1px solid #d9e2ef;border-radius:14px;padding:16px;box-shadow:0 3px 10px rgba(0,0,0,.05)}
-aside h2{margin:0 0 12px;color:#143a76}
+:root{
+  --bg:#f6f3ef; --paper:#fffdf8; --ink:#2b2118; --muted:#6b5d52;
+  --primary:#8a3b12; --primary2:#b85d22; --gold:#d6a23a;
+  --green:#1f7a4d; --red:#b83a32; --border:#e2d5c8;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);}
+.hero{background:linear-gradient(135deg,#5b260d,#a64a18);color:white;padding:42px 24px;text-align:center}
+.hero h1{margin:0 0 10px;font-size:34px}
+.hero p{margin:0 auto;max-width:860px;font-size:17px;line-height:1.55}
+main{max-width:1200px;margin:auto;padding:24px}
+.panel{background:var(--paper);border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:0 8px 24px rgba(43,33,24,.08)}
+.btn{display:inline-block;background:var(--primary);color:#fff;text-decoration:none;padding:12px 18px;border-radius:12px;font-weight:bold}
+.btn:hover{background:#61270d}
+
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:18px 0;flex-wrap:wrap}
+.score{font-weight:bold;color:var(--primary);font-size:18px}
+button{background:var(--primary);color:#fff;border:0;border-radius:12px;padding:11px 16px;font-weight:bold;cursor:pointer}
+button:hover{background:#61270d}
+.layout{display:grid;grid-template-columns:1.45fr .75fr;gap:22px;align-items:start}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(260px,1fr));gap:16px}
+.item{background:var(--paper);border:1px solid var(--border);border-radius:18px;padding:14px;display:grid;grid-template-columns:105px 1fr;gap:14px;box-shadow:0 6px 16px rgba(43,33,24,.07)}
+.visual svg{width:105px;height:82px;display:block}
+.item h3{margin:2px 0 10px;font-size:17px}
+.dropzone{min-height:44px;border:2px dashed #b79b83;border-radius:12px;background:#fffaf2;color:var(--muted);display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;transition:.15s}
+.dropzone.over{background:#fff1d2;border-color:var(--gold);transform:scale(1.02)}
+.dropzone.correct{background:#edf8f0;border-color:var(--green);color:var(--green);font-weight:bold}
+.dropzone.wrong{background:#fff0ee;border-color:var(--red);color:var(--red);font-weight:bold}
+aside{background:var(--paper);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:0 6px 16px rgba(43,33,24,.07);position:sticky;top:16px}
+aside h2{margin:0 0 12px;color:var(--primary)}
 .bank{display:flex;flex-direction:column;gap:10px}
-.token{background:white;border:1px solid #b7c4d6;border-radius:10px;padding:10px;box-shadow:0 2px 6px rgba(0,0,0,.08);font-weight:bold;cursor:grab}
+.token{background:#fff;border:1px solid #cdb9a7;border-radius:12px;padding:10px 12px;box-shadow:0 2px 8px rgba(43,33,24,.08);font-weight:bold;cursor:grab}
 .token.used{opacity:.35;cursor:not-allowed}
-.feedback{display:none;margin-top:14px;padding:12px;border-radius:12px;background:#fff8e8;border:1px solid #f2d18b}
-.feedback.ok{background:#eefaf2;border-color:#a5d6b7}
-@media(max-width:900px){.layout{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+.feedback{display:none;margin-top:14px;padding:13px;border-radius:14px;background:#fff7e5;border:1px solid #e6c878;line-height:1.45}
+.feedback.ok{background:#edf8f0;border-color:#9ed0b1}
+.note{background:#fff7e5;border:1px solid #e6c878;border-radius:16px;padding:14px;margin-bottom:18px}
+@media(max-width:950px){.layout{grid-template-columns:1fr}aside{position:static}}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.item{grid-template-columns:1fr}.visual svg{width:100%;height:100px}}
 </style>
 </head>
 <body>
-<header>
-<h1>Actividad de cierre: Aportes de América Latina al mundo</h1>
-<p>Arrastra cada tarjeta hacia la aportación latinoamericana que corresponda.</p>
-</header>
-<main>
-<div class="instructions"><strong>Instrucciones:</strong> Relaciona cada aporte con su origen, autor, cultura o región. Al finalizar, presiona <strong>Calificar</strong>.</div>
-<div class="scorebar">
-<div class="score" id="score">Aciertos: 0 / 10</div>
-<div><button onclick="checkAnswers()">Calificar</button> <button onclick="resetActivity()">Reiniciar</button></div>
-</div>
-<div class="layout">
-<section class="grid">
-<div class="item"><div class="icon">🌽</div><div><h3>Maíz</h3><div class="dropzone" data-answer="Pueblos mesoamericanos">Arrastra aquí</div></div></div>
-<div class="item"><div class="icon">🍫</div><div><h3>Chocolate / cacao</h3><div class="dropzone" data-answer="Civilizaciones mesoamericanas">Arrastra aquí</div></div></div>
-<div class="item"><div class="icon">🛶</div><div><h3>Chinampas</h3><div class="dropzone" data-answer="Mexicas">Arrastra aquí</div></div></div>
-<div class="item"><div class="icon">📺</div><div><h3>Televisión a color</h3><div class="dropzone" data-answer="Guillermo González Camarena">Arrastra aquí</div></div></div>
-<div class="item"><div class="icon">📚</div><div><h3>Cien años de soledad</h3><div class="dropzone" data-answer="Gabriel García Márquez">Arrastra aquí</div></div></div>
-<div class="item"><div class="icon">🎨</div><div><h3>Figuras de Botero</h3><div class="dropzone" data-answer="Fernando Botero">Arrastra aquí</div></div></div>
-<div class="item"><div class="icon">🪢</div><div><h3>Quipu</h3><div class="dropzone" data-answer="Culturas andinas">Arrastra aquí</div></div></div>
-<div class="item"><div class="icon">🥔</div><div><h3>Papa</h3><div class="dropzone" data-answer="Andes centrales">Arrastra aquí</div></div></div>
-<div class="item"><div class="icon">🦙</div><div><h3>Domesticación de la llama</h3><div class="dropzone" data-answer="Andes">Arrastra aquí</div></div></div>
-<div class="item"><div class="icon">🏺</div><div><h3>Cerámica Nazca</h3><div class="dropzone" data-answer="Cultura Nazca">Arrastra aquí</div></div></div>
+<section class="hero">
+  <h1>Laboratorio interactivo: Aportes de América Latina al mundo</h1>
+  <p>Relaciona cada aporte latinoamericano con su origen, autor, cultura o región. El propósito es reconocer saberes y creaciones de nuestra región como parte del conocimiento mundial.</p>
 </section>
-<aside>
-<h2>Tarjetas</h2>
-<div class="bank" id="bank">
-<div class="token" draggable="true">Gabriel García Márquez</div>
+<main>
+  <div class="note"><strong>Instrucciones:</strong> arrastra cada tarjeta hacia la imagen correspondiente. Después presiona <strong>Calificar</strong>. Puedes reiniciar la actividad si deseas intentarlo de nuevo.</div>
+  <div class="toolbar">
+    <div class="score" id="score">Aciertos: 0 / 10</div>
+    <div><button onclick="checkAnswers()">Calificar</button> <button onclick="resetActivity()">Reiniciar</button></div>
+  </div>
+  <div class="layout">
+    <section class="grid"><div class="item">
+      <div class="visual"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="90" rx="16" fill="#fff3cd"/><path d="M60 15 C78 30 80 60 60 78 C40 60 42 30 60 15Z" fill="#f5c542" stroke="#8a6a00" stroke-width="3"/><path d="M34 38 C43 48 51 62 60 78 C43 72 30 58 25 42Z" fill="#5a9f3d"/><path d="M86 38 C77 48 69 62 60 78 C77 72 90 58 95 42Z" fill="#5a9f3d"/><g stroke="#8a6a00" stroke-width="1.5"><path d="M52 25 L70 70"/><path d="M68 25 L50 70"/><path d="M47 38 H73"/><path d="M45 50 H75"/><path d="M48 62 H72"/></g></svg></div>
+      <div><h3>Maíz</h3><div class="dropzone" data-answer="Pueblos mesoamericanos">Arrastra aquí</div></div>
+    </div>
+<div class="item">
+      <div class="visual"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="90" rx="16" fill="#f6e6d8"/><ellipse cx="60" cy="46" rx="25" ry="34" fill="#7a3e22" stroke="#3d1e12" stroke-width="3"/><path d="M60 12 C53 26 52 62 60 80 C68 62 67 26 60 12Z" fill="#9b532d"/><g stroke="#3d1e12" stroke-width="2"><path d="M43 25 C53 30 67 30 77 25"/><path d="M39 42 C51 47 69 47 81 42"/><path d="M43 60 C53 65 67 65 77 60"/></g></svg></div>
+      <div><h3>Chocolate / cacao</h3><div class="dropzone" data-answer="Civilizaciones mesoamericanas">Arrastra aquí</div></div>
+    </div>
+<div class="item">
+      <div class="visual"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="90" rx="16" fill="#dff3ff"/><path d="M0 62 C25 50 42 74 65 62 C88 50 100 65 120 56 L120 90 L0 90Z" fill="#5fa8d3"/><rect x="24" y="36" width="72" height="28" rx="4" fill="#7a5b35" stroke="#4b351f" stroke-width="3"/><path d="M30 35 V20 M44 35 V18 M60 35 V21 M76 35 V18 M90 35 V20" stroke="#2f7d32" stroke-width="4"/><circle cx="30" cy="18" r="5" fill="#5aa832"/><circle cx="44" cy="16" r="5" fill="#5aa832"/><circle cx="60" cy="19" r="5" fill="#5aa832"/><circle cx="76" cy="16" r="5" fill="#5aa832"/><circle cx="90" cy="18" r="5" fill="#5aa832"/></svg></div>
+      <div><h3>Chinampas</h3><div class="dropzone" data-answer="Mexicas">Arrastra aquí</div></div>
+    </div>
+<div class="item">
+      <div class="visual"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="90" rx="16" fill="#eaf2ff"/><rect x="22" y="20" width="76" height="48" rx="6" fill="#1f2937"/><rect x="28" y="26" width="64" height="36" rx="3" fill="#fff"/><rect x="28" y="26" width="13" height="36" fill="#f44336"/><rect x="41" y="26" width="13" height="36" fill="#ffeb3b"/><rect x="54" y="26" width="13" height="36" fill="#4caf50"/><rect x="67" y="26" width="13" height="36" fill="#2196f3"/><rect x="80" y="26" width="12" height="36" fill="#9c27b0"/><path d="M45 72 H75" stroke="#1f2937" stroke-width="5" stroke-linecap="round"/></svg></div>
+      <div><h3>Televisión a color</h3><div class="dropzone" data-answer="Guillermo González Camarena">Arrastra aquí</div></div>
+    </div>
+<div class="item">
+      <div class="visual"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="90" rx="16" fill="#f3efe7"/><path d="M25 20 H57 C62 20 64 25 64 30 V73 C62 69 57 68 52 68 H25Z" fill="#fff" stroke="#7c2d12" stroke-width="3"/><path d="M95 20 H63 C58 20 56 25 56 30 V73 C58 69 63 68 68 68 H95Z" fill="#fff" stroke="#7c2d12" stroke-width="3"/><path d="M35 34 H52 M35 44 H52 M35 54 H49 M70 34 H87 M70 44 H87 M70 54 H84" stroke="#7c2d12" stroke-width="2"/></svg></div>
+      <div><h3>Cien años de soledad</h3><div class="dropzone" data-answer="Gabriel García Márquez">Arrastra aquí</div></div>
+    </div>
+<div class="item">
+      <div class="visual"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="90" rx="16" fill="#f9e4ef"/><circle cx="60" cy="28" r="16" fill="#d9a066" stroke="#6b3a1e" stroke-width="3"/><ellipse cx="60" cy="62" rx="30" ry="23" fill="#2d6a9f" stroke="#143a76" stroke-width="3"/><circle cx="53" cy="26" r="2" fill="#000"/><circle cx="67" cy="26" r="2" fill="#000"/><path d="M54 35 Q60 39 66 35" stroke="#6b3a1e" stroke-width="2" fill="none"/></svg></div>
+      <div><h3>Figuras de Botero</h3><div class="dropzone" data-answer="Fernando Botero">Arrastra aquí</div></div>
+    </div>
+<div class="item">
+      <div class="visual"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="90" rx="16" fill="#f7eadc"/><path d="M25 18 H95" stroke="#7c4a21" stroke-width="5" stroke-linecap="round"/><g stroke="#9a5a28" stroke-width="3" stroke-linecap="round"><path d="M35 20 V70"/><path d="M50 20 V76"/><path d="M65 20 V68"/><path d="M80 20 V74"/></g><g fill="#7c4a21"><circle cx="35" cy="42" r="4"/><circle cx="35" cy="53" r="4"/><circle cx="50" cy="36" r="4"/><circle cx="50" cy="60" r="4"/><circle cx="65" cy="48" r="4"/><circle cx="80" cy="39" r="4"/><circle cx="80" cy="58" r="4"/></g></svg></div>
+      <div><h3>Quipu</h3><div class="dropzone" data-answer="Culturas andinas">Arrastra aquí</div></div>
+    </div>
+<div class="item">
+      <div class="visual"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="90" rx="16" fill="#efe3d2"/><ellipse cx="60" cy="47" rx="33" ry="25" fill="#b2875b" stroke="#6e4f2e" stroke-width="3"/><circle cx="47" cy="42" r="3" fill="#6e4f2e"/><circle cx="65" cy="35" r="3" fill="#6e4f2e"/><circle cx="75" cy="52" r="3" fill="#6e4f2e"/><circle cx="55" cy="60" r="3" fill="#6e4f2e"/></svg></div>
+      <div><h3>Papa</h3><div class="dropzone" data-answer="Andes centrales">Arrastra aquí</div></div>
+    </div>
+<div class="item">
+      <div class="visual"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="90" rx="16" fill="#eef7ef"/><path d="M42 68 V43 C42 33 50 28 60 28 H72 C80 28 84 34 84 42 V68" fill="#f4f0e5" stroke="#6b5d52" stroke-width="3"/><path d="M54 30 V14 C54 10 60 10 60 14 V30" fill="#f4f0e5" stroke="#6b5d52" stroke-width="3"/><circle cx="61" cy="19" r="2" fill="#111"/><path d="M45 68 V80 M60 68 V80 M74 68 V80 M84 68 V80" stroke="#6b5d52" stroke-width="4" stroke-linecap="round"/></svg></div>
+      <div><h3>Domesticación de la llama</h3><div class="dropzone" data-answer="Andes">Arrastra aquí</div></div>
+    </div>
+<div class="item">
+      <div class="visual"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="90" rx="16" fill="#f3dfc5"/><path d="M42 24 H78 L72 72 H48Z" fill="#c46b2b" stroke="#6b2f12" stroke-width="3"/><path d="M44 35 H76 M46 49 H74 M48 62 H72" stroke="#fff1d6" stroke-width="3"/><path d="M52 35 C55 42 65 42 68 35" stroke="#6b2f12" stroke-width="2" fill="none"/></svg></div>
+      <div><h3>Cerámica Nazca</h3><div class="dropzone" data-answer="Cultura Nazca">Arrastra aquí</div></div>
+    </div></section>
+    <aside>
+      <h2>Tarjetas</h2>
+      <div class="bank" id="bank"><div class="token" draggable="true">Gabriel García Márquez</div>
 <div class="token" draggable="true">Pueblos mesoamericanos</div>
 <div class="token" draggable="true">Fernando Botero</div>
 <div class="token" draggable="true">Guillermo González Camarena</div>
@@ -70,53 +108,53 @@ aside h2{margin:0 0 12px;color:#143a76}
 <div class="token" draggable="true">Mexicas</div>
 <div class="token" draggable="true">Andes centrales</div>
 <div class="token" draggable="true">Andes</div>
-<div class="token" draggable="true">Cultura Nazca</div>
-</div>
-<div id="feedback" class="feedback"></div>
-</aside>
-</div>
+<div class="token" draggable="true">Cultura Nazca</div></div>
+      <div id="feedback" class="feedback"></div>
+    </aside>
+  </div>
 </main>
 <script>
 let dragged=null;
 document.querySelectorAll('.token').forEach(t=>{
-t.addEventListener('dragstart',e=>{
- if(t.classList.contains('used')){e.preventDefault();return}
- dragged=t; e.dataTransfer.setData('text/plain',t.textContent);
-});
+  t.addEventListener('dragstart',e=>{
+    if(t.classList.contains('used')){e.preventDefault();return}
+    dragged=t; e.dataTransfer.setData('text/plain',t.textContent);
+  });
 });
 document.querySelectorAll('.dropzone').forEach(z=>{
-z.addEventListener('dragover',e=>{e.preventDefault();z.classList.add('over')});
-z.addEventListener('dragleave',()=>z.classList.remove('over'));
-z.addEventListener('drop',e=>{
- e.preventDefault(); z.classList.remove('over');
- if(!dragged)return;
- const placed=z.querySelector('.placed');
- if(placed){unuse(placed.textContent)}
- z.innerHTML='<span class="placed">'+dragged.textContent+'</span>';
- dragged.classList.add('used');
- z.classList.remove('correct','wrong');
-});
+  z.addEventListener('dragover',e=>{e.preventDefault();z.classList.add('over')});
+  z.addEventListener('dragleave',()=>z.classList.remove('over'));
+  z.addEventListener('drop',e=>{
+    e.preventDefault(); z.classList.remove('over');
+    if(!dragged)return;
+    const placed=z.querySelector('.placed');
+    if(placed){unuse(placed.textContent)}
+    z.innerHTML='<span class="placed">'+dragged.textContent+'</span>';
+    dragged.classList.add('used');
+    z.classList.remove('correct','wrong');
+    document.getElementById('feedback').style.display='none';
+  });
 });
 function unuse(text){
- document.querySelectorAll('#bank .token').forEach(t=>{if(t.textContent===text){t.classList.remove('used')}});
+  document.querySelectorAll('#bank .token').forEach(t=>{if(t.textContent===text){t.classList.remove('used')}});
 }
 function checkAnswers(){
- let correct=0; const zones=document.querySelectorAll('.dropzone');
- zones.forEach(z=>{
-   const p=z.querySelector('.placed'); z.classList.remove('correct','wrong');
-   if(p && p.textContent.trim()===z.dataset.answer){correct++;z.classList.add('correct')}
-   else{z.classList.add('wrong')}
- });
- document.getElementById('score').textContent='Aciertos: '+correct+' / '+zones.length;
- const f=document.getElementById('feedback'); f.style.display='block';
- if(correct===zones.length){f.className='feedback ok';f.innerHTML='<strong>Excelente.</strong> Todas las relaciones son correctas.'}
- else{f.className='feedback';f.innerHTML='<strong>Resultado:</strong> '+correct+' de '+zones.length+'. Revisa las opciones marcadas en rojo.'}
+  let correct=0; const zones=document.querySelectorAll('.dropzone');
+  zones.forEach(z=>{
+    const p=z.querySelector('.placed'); z.classList.remove('correct','wrong');
+    if(p && p.textContent.trim()===z.dataset.answer){correct++;z.classList.add('correct')}
+    else{z.classList.add('wrong')}
+  });
+  document.getElementById('score').textContent='Aciertos: '+correct+' / '+zones.length;
+  const f=document.getElementById('feedback'); f.style.display='block';
+  if(correct===zones.length){f.className='feedback ok';f.innerHTML='<strong>Excelente.</strong> Todas las relaciones son correctas. América Latina ha producido conocimientos, obras e innovaciones de impacto mundial.'}
+  else{f.className='feedback';f.innerHTML='<strong>Resultado:</strong> '+correct+' de '+zones.length+'. Revisa las opciones marcadas en rojo e inténtalo nuevamente.'}
 }
 function resetActivity(){
- document.querySelectorAll('#bank .token').forEach(t=>t.classList.remove('used'));
- document.querySelectorAll('.dropzone').forEach(z=>{z.innerHTML='Arrastra aquí';z.classList.remove('correct','wrong')});
- document.getElementById('score').textContent='Aciertos: 0 / 10';
- document.getElementById('feedback').style.display='none';
+  document.querySelectorAll('#bank .token').forEach(t=>t.classList.remove('used'));
+  document.querySelectorAll('.dropzone').forEach(z=>{z.innerHTML='Arrastra aquí';z.classList.remove('correct','wrong')});
+  document.getElementById('score').textContent='Aciertos: 0 / 10';
+  document.getElementById('feedback').style.display='none';
 }
 </script>
 </body>

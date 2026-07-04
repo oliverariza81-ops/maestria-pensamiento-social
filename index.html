@@ -5,30 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pensamiento Social Contemporáneo</title>
 <style>
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f7fb;color:#1f2937}
-.hero{background:linear-gradient(135deg,#143a76,#2563eb);color:white;padding:48px 24px;text-align:center}
-.hero h1{margin:0;font-size:34px}
-.hero p{font-size:18px;margin:12px auto 0;max-width:760px}
-main{max-width:900px;margin:32px auto;padding:0 20px}
-.card{background:white;border:1px solid #d9e2ef;border-radius:16px;padding:24px;box-shadow:0 4px 14px rgba(0,0,0,.06)}
-.btn{display:inline-block;margin-top:18px;background:#143a76;color:white;text-decoration:none;padding:12px 18px;border-radius:10px;font-weight:bold}
-.btn:hover{background:#0f2d60}
-small{color:#64748b}
+:root{
+  --bg:#f6f3ef; --paper:#fffdf8; --ink:#2b2118; --muted:#6b5d52;
+  --primary:#8a3b12; --primary2:#b85d22; --gold:#d6a23a;
+  --green:#1f7a4d; --red:#b83a32; --border:#e2d5c8;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);}
+.hero{background:linear-gradient(135deg,#5b260d,#a64a18);color:white;padding:42px 24px;text-align:center}
+.hero h1{margin:0 0 10px;font-size:34px}
+.hero p{margin:0 auto;max-width:860px;font-size:17px;line-height:1.55}
+main{max-width:1200px;margin:auto;padding:24px}
+.panel{background:var(--paper);border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:0 8px 24px rgba(43,33,24,.08)}
+.btn{display:inline-block;background:var(--primary);color:#fff;text-decoration:none;padding:12px 18px;border-radius:12px;font-weight:bold}
+.btn:hover{background:#61270d}
+
+.course-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px}
+.session{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px}
+.session small{color:var(--muted)}
 </style>
 </head>
 <body>
 <section class="hero">
-<h1>Pensamiento Social Contemporáneo</h1>
-<p>Objetos de aprendizaje interactivos para la Maestría en Trabajo Social</p>
+  <h1>Pensamiento Social Contemporáneo</h1>
+  <p>Objetos de aprendizaje interactivos para la Maestría en Trabajo Social con Enfoque en Desarrollo Humano.</p>
 </section>
 <main>
-<div class="card">
-<h2>Sesión 5: Colonialidad del saber</h2>
-<p><strong>Actividad interactiva:</strong> Aportes de América Latina al mundo.</p>
-<p>Relaciona cada aporte latinoamericano con su origen, autor, cultura o región correspondiente.</p>
-<a class="btn" href="actividad_interactiva_aportes_latinoamerica.html">Abrir actividad</a>
-<p><small>Recurso diseñado para apoyar la discusión sobre eurocentrismo, colonialidad del saber y valoración de conocimientos latinoamericanos.</small></p>
-</div>
+  <section class="panel">
+    <h2>Sesión 5: Colonialidad del saber</h2>
+    <p><strong>Actividad interactiva:</strong> Aportes de América Latina al mundo.</p>
+    <p>Este recurso permite reconocer contribuciones latinoamericanas y problematizar el eurocentrismo en la valoración del conocimiento.</p>
+    <a class="btn" href="actividad_interactiva_aportes_latinoamerica.html">Abrir actividad interactiva</a>
+  </section>
+  <div class="course-grid">
+    <div class="session"><strong>Sesión 1</strong><br><small>Modernidad</small></div>
+    <div class="session"><strong>Sesión 2</strong><br><small>Habitus</small></div>
+    <div class="session"><strong>Sesión 3</strong><br><small>Industria cultural</small></div>
+    <div class="session"><strong>Sesión 4</strong><br><small>Panoptismo</small></div>
+    <div class="session"><strong>Sesión 5</strong><br><small>Colonialidad del saber</small></div>
+  </div>
 </main>
 </body>
 </html>
